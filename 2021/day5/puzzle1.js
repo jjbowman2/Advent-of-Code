@@ -5,6 +5,7 @@ let input = fs
     .readFileSync(path.join(__dirname, "input.txt"), { encoding: "utf-8" })
     .split(/\n/);
 
+console.time("Calculation time");
 let straightLines = input
     .map((line) =>
         line.split(" -> ").map((point) => point.split(",").map(Number))
@@ -45,4 +46,5 @@ let dangerousPointsCount = Object.values(pointCount).reduce(
     (sum, count) => (count > 1 ? sum + 1 : sum),
     0
 );
+console.timeEnd("Calculation time");
 console.log(`Answer: ${dangerousPointsCount}`);

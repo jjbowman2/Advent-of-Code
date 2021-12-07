@@ -6,6 +6,7 @@ let depths = fs
     .split(/\n/)
     .map(Number);
 
+console.time("Calculation time");
 let getWindow = (index, array) => {
     if (index + 2 > array.length) {
         return undefined;
@@ -26,4 +27,5 @@ windows.forEach((window) => {
     prev = window;
 });
 
+console.timeEnd("Calculation time");
 console.log(increaseCount);

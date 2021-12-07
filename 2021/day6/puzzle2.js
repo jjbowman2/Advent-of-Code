@@ -7,6 +7,8 @@ let initialState = fs
     .split(",")
     .map(Number);
 
+console.time("Calculation time");
+
 let timers = {
     0: 0,
     1: 0,
@@ -37,4 +39,5 @@ for (let i = 0; i < 256; i++) {
 }
 
 let totalCount = Object.values(timers).reduce((sum, curr) => sum + curr, 0);
+console.timeEnd("Calculation time");
 console.log({ totalCount });

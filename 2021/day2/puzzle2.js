@@ -5,6 +5,7 @@ let commands = fs
     .readFileSync(path.join(__dirname, "input.txt"), { encoding: "utf-8" })
     .split(/\n/);
 
+console.time("Calculation time");
 let convertCommand = (command) => {
     let [direction, quantity] = command.split(/\s/);
     quantity = Number(quantity);
@@ -29,5 +30,6 @@ commands.map(convertCommand).forEach(({ displacement, direction }) => {
     depth += aim * displacement;
 });
 
+console.timeEnd("Calculation time");
 console.log({ horizontalPosition, depth, aim });
 console.log(`Answer: ${horizontalPosition * depth}`);

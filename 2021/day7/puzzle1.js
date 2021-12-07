@@ -9,6 +9,7 @@ let points = fs
     .sort();
 
 // O(m*n) where m is the range of the dataset, and n is the size of the dataset
+console.time("Calculation time");
 let bestCost, bestPoint;
 for (let i = points[0]; i <= points[points.length - 1]; i++) {
     let cost = 0;
@@ -20,4 +21,5 @@ for (let i = points[0]; i <= points[points.length - 1]; i++) {
         bestPoint = i;
     }
 }
+console.timeEnd("Calculation time");
 console.log({ bestCost, bestPoint });

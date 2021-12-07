@@ -1,11 +1,11 @@
 const fs = require("fs");
 const path = require("path");
-const { exit } = require("process");
 
 let input = fs
     .readFileSync(path.join(__dirname, "input.txt"), { encoding: "utf-8" })
     .split(/\n/);
 
+console.time("Calculation time");
 let extractRow = (input) => {
     return input
         .shift()
@@ -97,3 +97,4 @@ calledNumbers.forEach((currentNumber) => {
         }
     });
 });
+console.timeEnd("Calculation time");

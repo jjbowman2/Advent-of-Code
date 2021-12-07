@@ -7,6 +7,8 @@ let state = fs
     .split(",")
     .map(Number);
 
+console.time("Calculation time");
+
 for (let i = 0; i < 80; i++) {
     state = state.flatMap((timer) => {
         if (timer === 0) {
@@ -17,4 +19,5 @@ for (let i = 0; i < 80; i++) {
     });
 }
 
+console.timeEnd("Calculation time");
 console.log(state.length);
