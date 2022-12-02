@@ -1,10 +1,13 @@
 import * as fs from "fs";
 import * as path from "path";
 
+type column1 = "A" | "B" | "C";
+type column2 = "X" | "Y" | "Z";
+
 let input = fs
 	.readFileSync(path.join(__dirname, "input.txt"), { encoding: "utf-8" })
 	.split(/\n/)
-	.map((round) => round.split(" "));
+	.map((round) => round.split(" ") as [column1, column2]);
 
 const shapePointsPart1 = {
 	X: 1,
@@ -30,7 +33,7 @@ const outcomesPart1 = {
 	},
 };
 
-const getRoundScorePart1 = (opponentChoice: string, yourChoice: string) => {
+const getRoundScorePart1 = (opponentChoice: column1, yourChoice: column2) => {
 	return (
 		outcomesPart1[opponentChoice][yourChoice] + shapePointsPart1[yourChoice]
 	);
@@ -74,7 +77,10 @@ const decisions = {
 	},
 };
 
-const getRoundScorePart2 = (opponentChoice: string, expectedResult: string) => {
+const getRoundScorePart2 = (
+	opponentChoice: column1,
+	expectedResult: column2
+) => {
 	return (
 		shapePointsPart2[decisions[opponentChoice][expectedResult]] +
 		outcomePoints[expectedResult]
