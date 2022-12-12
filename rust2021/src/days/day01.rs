@@ -1,9 +1,9 @@
 use crate::{Solution, SolutionPair};
-
+use std::fs::read_to_string;
 ///////////////////////////////////////////////////////////////////////////////
 
 pub fn get_input() -> String {
-    std::fs::read_to_string("input/day01.txt").unwrap()
+    read_to_string("input/day01.txt").unwrap()
 }
 
 pub fn solve() -> SolutionPair {
