@@ -1,5 +1,5 @@
-import { part1 } from "./day14/1";
-import { part2 } from "./day14/2";
+import { part1 } from "./day16/1";
+import { part2 } from "./day16/2";
 
 console.log("Part 1:");
 part1();
